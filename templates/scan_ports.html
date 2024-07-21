@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Ports Results</title>
+    <style>
+        /* Adicione seu estilo aqui */
+    </style>
+</head>
+<body>
+    <h1>Scan Ports Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>Open Ports</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ip, ports in open_ports.items() %}
+                <tr>
+                    <td>{{ ip }}</td>
+                    <td>
+                        {% if ports == 'offline' %}
+                            Offline
+                        {% else %}
+                            {{ ports | join(', ') }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

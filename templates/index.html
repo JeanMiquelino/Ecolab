@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        #updates {
+            margin-top: 20px;
+        }
+        .update {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Network Monitor</h1>
+        <form action="/scan_network" method="post">
+            <h2>Scan Network</h2>
+            <input type="text" name="ip_range" placeholder="IP Range (e.g., 192.168.1.0/24)">
+            <button type="submit">Scan</button>
+        </form>
+        <form action="/scan_ports" method="post">
+            <h2>Scan Ports</h2>
+            <input type="text" name="ip_range_ports" placeholder="IP Range (e.g., 192.168.1.0/24)">
+            <input type="text" name="ports" placeholder="Ports (e.g., 22,80,443)">
+            <button type="submit">Scan</button>
+        </form>
+        
+        <div>
+            <h2>Monitor Ping</h2>
+            <input type="text" id="ping-host" placeholder="Host to monitor">
+            <button onclick="monitorPing()">Start Monitoring</button>
+        </div>
+        <div>
+            <h2>Monitor Port</h2>
+            <input type="text" id="port-host" placeholder="Host">
+            <input type="text" id="port" placeholder="Port">
+            <button onclick="monitorPort()">Start Monitoring</button>
+        </div>
+        <div id="updates">
+            <h2>Updates</h2>
+            <div id="update-list"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        function monitorPing() {
+            const host = document.getElementById('ping-host').value;
+            fetch('/api/monitor_ping', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ host: host })
+            }).then(response => response.json()).then(data => {
+                console.log(data);
+            });
+        }
+
+        function monitorPort() {
+            const host = document.getElementById('port-host').value;
+            const port = document.getElementById('port').value;
+            fetch('/api/monitor_port', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ host: host, port: port })
+            }).then(response => response.json()).then(data => {
+                console.log(data);
+            });
+        }
+
+        socket.on('network_update', function(data) {
+            addUpdate(`Network Update: ${data.status}`);
+        });
+
+        socket.on('port_update', function(data) {
+            addUpdate(`Port Update: ${data.host} - Port ${data.port} is open`);
+        });
+
+        socket.on('ping_update', function(data) {
+            addUpdate(`Ping Update: ${data.host} - Avg Ping: ${data.avg_ping} ms`);
+        });
+
+        socket.on('port_status_update', function(data) {
+            addUpdate(`Port Status Update: ${data.host} - Port ${data.port} is now ${data.status}`);
+        });
+
+        function addUpdate(message) {
+            const updateList = document.getElementById('update-list');
+            const update = document.createElement('div');
+            update.className = 'update';
+            update.textContent = message;
+            updateList.appendChild(update);
+        }
+    </script>
+</body>
+</html>
