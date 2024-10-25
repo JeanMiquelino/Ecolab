@@ -1,0 +1,260 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(../../banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura total da janela */
+    margin: 0;
+    color: #fff;
+}
+
+.overlayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    flex-grow: 1; /* Faz a div container crescer para ocupar o espaço restante */
+    padding-top: 100px; /* Espaço para não ser coberto pela navbar */
+}
+
+/* Estilo do formulário */
+form {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilo dos títulos */
+form h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilo dos inputs */
+form input[type="text"],
+form input[type="password"],
+form input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+/* Efeito de foco nos inputs */
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-bottom: 2px solid #0056b3;
+}
+
+/* Estilo do botão de envio */
+form input[type="submit"] {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+input::placeholder {
+    color: #ddd;
+}
+
+/* Estilo ao passar o mouse no botão */
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo do botão "Voltar" */
+.voltar {
+    background-color: #f44336;
+    color: white;
+    padding: 12px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+/* Efeito ao passar o mouse no botão "Voltar" */
+.voltar:hover {
+    background-color: #d32f2f;
+}
+
+/* Menu fixo no topo */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ecolab {
+    display: inline-block;
+    color: #fff;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.menu li {
+    margin: 5px;
+}
+
+.menu a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.menu a:hover {
+    background-color: #575757;
+}
+
+.menu a.menu-item {
+    background-color: #1952bb;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    transition: transform 0.2s;
+}
+
+.menu a.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.logout-button {
+    background-color: #e63946;
+    color: white;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.logout-button:hover {
+    background-color: #e63946;
+    transform: scale(1.05);
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: #050eb4;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-top: auto; /* Mantém o rodapé na parte inferior */
+}
+
+footer a {
+    color: rgb(0, 255, 242);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+.logo {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    margin-left: 10px;
+    border-radius: 100%;
+}
+/* Ajustes no estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+/* Estilo dos labels */
+form label {
+    margin-bottom: 5px; /* Espaçamento entre o label e o input */
+    text-align: center; /* Alinha o texto do label à esquerda */
+    width: 100%; /* Faz o label ocupar toda a largura disponível */
+}
+
+/* Estilo dos inputs */
+form input[type="text"],
+form input[type="number"] {
+    width: 100%; /* Garante que os inputs ocupem toda a largura do formulário */
+    max-width: 350px; /* Limita a largura máxima dos inputs */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+/* Outros estilos permanecem inalterados */

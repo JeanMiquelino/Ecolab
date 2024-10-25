@@ -1,0 +1,120 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(../banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+/* Estilo do formulário */
+form {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Estilo dos títulos */
+form h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilo da imagem */
+form img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Estilo dos labels */
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ddd;
+    text-align: left;
+}
+
+/* Estilo dos inputs */
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+/* Efeito de foco nos inputs */
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-bottom: 2px solid #0056b3;
+}
+
+/* Estilo do botão de envio */
+form input[type="submit"] {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+/* Estilo ao passar o mouse no botão */
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo da mensagem de erro */
+form .error {
+    color: #f44336;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Estilo da logo e título */
+img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.ecolab {
+    display: inline-block;
+    color: #fff;
+    font-size: 22px;
+    margin-left: 10px;
+    vertical-align: middle;
+}

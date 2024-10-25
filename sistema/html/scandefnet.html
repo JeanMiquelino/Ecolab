@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/forms.css">
+    <link rel="icon" href="../../Logos/Logo 3.jpg" type="image/png">
+    <title>Ecolab</title>
+</head>
+<body>
+    <div class ="overlayer"></div>
+    <nav class="menu">
+        <img class="logo" src="../../Logos/Logo 3.jpg" alt="">
+        <p class="ecolab">Ecolab</p>
+            <ul class="menu-opcoes">
+            <li><a href="../index.php" class="menu-item">Home</a></li>
+                <li><a href="../php/pingdefine.php" class="menu-item">Monitorar</a></li>
+            </ul>
+            <a href="../php/sair.php" class="logout-button">Desconectar</a>
+    </nav>
+    <div class="container">
+        <form action="../php/scan.php" method="post">
+            <h1>Defina A Rede Para Escanear</h1>
+            <label for="rede">Rede:</label>
+            <input type="text" name="rede" id="rede" placeholder="Ex.: 192.168.1.0/24" required>
+            <input type="submit" value="Escanear">
+            <p></p>
+            <a class="voltar" href="../index.php">Voltar</a>
+    </div>
+    <footer>
+        &copy; 2024 Ecolab - Com apoio de <a href="https://www.programmers.com.br">Programmers - Beyond IT</a> e <a href="https://www.processtelecom.com.br">Process Telecom</a>.
+    </footer>
+</body>
+</html>
